@@ -1,0 +1,48 @@
+{
+  "name": "@blogjs/server",
+  "version": "0.1.0",
+  "description": "",
+  "keywords": [
+    "apollo",
+    "blog",
+    "graphql",
+    "koa",
+    "server"
+  ],
+  "homepage": "https://github.com/learners/blog/tree/master/packages/server#readme",
+  "bugs": {
+    "url": "https://github.com/learners/blog/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/learners/blog.git",
+    "directory": "packages/server"
+  },
+  "license": "MIT",
+  "contributors": [
+    "yibhou <richard.lam@my.com>"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "nodemonConfig": {
+    "env": {
+      "NODE_ENV": "development"
+    },
+    "exec": "ts-node src/index",
+    "ext": "ts,json,gql",
+    "ignore": [
+      ".git",
+      "node_modules"
+    ],
+    "verbose": true,
+    "watch": [
+      "src"
+    ]
+  },
+  "dependencies": {
+    "@blogjs/shared": "^0.1.0"
+  }
+}

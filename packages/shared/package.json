@@ -1,0 +1,25 @@
+{
+  "name": "@blogjs/shared",
+  "version": "0.1.0",
+  "description": "internal utils shared across @blogjs packages",
+  "keywords": [
+    "utils"
+  ],
+  "homepage": "https://github.com/learners/blog/tree/master/packages/shared#readme",
+  "bugs": {
+    "url": "https://github.com/learners/blog/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/learners/blog.git",
+    "directory": "packages/shared"
+  },
+  "license": "MIT",
+  "contributors": [
+    "yibhou <richard.lam@my.com>"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

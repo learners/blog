@@ -1,0 +1,35 @@
+{
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:server": "yarn workspace @blogjs/server dev",
+    "preinstall": "",
+    "test": ""
+  },
+  "lint-staged": {
+    "package.json": [
+      "sort-package-json"
+    ]
+  },
+  "devDependencies": {
+    "@types/node": "^16.10.2",
+    "cross-env": "^7.0.3",
+    "lint-staged": "^11.1.2",
+    "nodemon": "^2.0.13",
+    "sort-package-json": "^1.52.0",
+    "ts-node": "^10.2.1",
+    "tsconfig-paths": "^3.11.0",
+    "typescript": "^4.4.3",
+    "yorkie": "^2.0.0"
+  },
+  "engines": {
+    "node": ">=14.16.1"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  }
+}
