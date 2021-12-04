@@ -1,2 +1,2 @@
-import app from '@/app'
+import app from '@/test'
 console.log('start....', app)
