@@ -11,7 +11,7 @@
  Target Server Version : 80027
  File Encoding         : 65001
 
- Date: 05/12/2021 16:59:59
+ Date: 10/12/2021 09:22:08
 */
 
 SET NAMES utf8mb4;
@@ -150,6 +150,26 @@ CREATE TABLE `permission` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- ----------------------------
+-- Table structure for profile
+-- ----------------------------
+DROP TABLE IF EXISTS `profile`;
+CREATE TABLE `profile` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int unsigned DEFAULT NULL,
+  `bio` varchar(100) DEFAULT NULL,
+  `motto` varchar(100) DEFAULT NULL,
+  `website` varchar(255) DEFAULT NULL,
+  `company` varchar(50) DEFAULT NULL,
+  `location` varchar(50) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `user_id` (`user_id`),
+  CONSTRAINT `profile_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- ----------------------------
 -- Table structure for resource
 -- ----------------------------
 DROP TABLE IF EXISTS `resource`;
@@ -216,12 +236,8 @@ CREATE TABLE `user` (
   `mobile` varchar(20) DEFAULT NULL,
   `email` varchar(50) NOT NULL,
   `public_email` varchar(50) DEFAULT NULL,
-  `bio` varchar(100) DEFAULT NULL,
-  `motto` varchar(100) DEFAULT NULL,
   `birthday` date DEFAULT NULL,
-  `website` varchar(255) DEFAULT NULL,
-  `company` varchar(50) DEFAULT NULL,
-  `location` varchar(50) DEFAULT NULL,
+  `profile_id` int unsigned DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
@@ -229,7 +245,9 @@ CREATE TABLE `user` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `account` (`account`),
   UNIQUE KEY `email` (`email`),
-  UNIQUE KEY `mobile` (`mobile`)
+  UNIQUE KEY `mobile` (`mobile`),
+  UNIQUE KEY `profile_id` (`profile_id`),
+  CONSTRAINT `user_ibfk_1` FOREIGN KEY (`profile_id`) REFERENCES `profile` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- ----------------------------
