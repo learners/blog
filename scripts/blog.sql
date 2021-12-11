@@ -36,28 +36,28 @@ CREATE TABLE `article` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- ----------------------------
--- Table structure for article_category
+-- Table structure for article_tag
 -- ----------------------------
-DROP TABLE IF EXISTS `article_category`;
-CREATE TABLE `article_category` (
+DROP TABLE IF EXISTS `article_tag`;
+CREATE TABLE `article_tag` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `article_id` int unsigned NOT NULL,
-  `category_id` int unsigned NOT NULL,
+  `tag_id` int unsigned NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `article_id` (`article_id`),
-  KEY `category_id` (`category_id`),
-  CONSTRAINT `article_category_ibfk_1` FOREIGN KEY (`article_id`) REFERENCES `article` (`id`),
-  CONSTRAINT `article_category_ibfk_2` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`)
+  KEY `tag_id` (`tag_id`),
+  CONSTRAINT `article_tag_ibfk_1` FOREIGN KEY (`article_id`) REFERENCES `article` (`id`),
+  CONSTRAINT `article_tag_ibfk_2` FOREIGN KEY (`tag_id`) REFERENCES `tag` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- ----------------------------
--- Table structure for category
+-- Table structure for tag
 -- ----------------------------
-DROP TABLE IF EXISTS `category`;
-CREATE TABLE `category` (
+DROP TABLE IF EXISTS `tag`;
+CREATE TABLE `tag` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
